@@ -110,6 +110,7 @@ export class ProductComponent implements OnInit {
       data: {productName: product.productName}
     })
     dialogRef.afterClosed().subscribe( (result)=>{
+
       if(result == 'delete'){
         this.productService.deleteProduct(product.id).subscribe( ()=>{
           //this.paginator.firstPage();
@@ -127,7 +128,7 @@ export class ProductComponent implements OnInit {
       data: {product: product}
     });
     dialogRef.afterClosed().subscribe( (data) =>{
-      console.log(data);
+      //console.log(data);
      if(data !='close'){
       this.productService.editProduct(data).subscribe( ()=>{this.getProducts(null)})
      }

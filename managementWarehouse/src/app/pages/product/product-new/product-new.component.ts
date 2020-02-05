@@ -29,15 +29,19 @@ export class ProductNewComponent implements OnInit {
   ) {
     if(data){
       this.product = data.product;
+    //  console.log(this.product);
       this.categoryCurrent = this.product.category;
+      this.brandCurrent = this.product.brand;
     }
 
    }
   public brands: Brand[] = [];
   public brand: Brand;
   public categoryCurrent: Category;
+  public brandCurrent: Brand;
   public categories: Category[] = [];
   public product: Product;
+  public updateProduct: Product = {};
 
 
 
@@ -52,35 +56,63 @@ export class ProductNewComponent implements OnInit {
 
   ngOnInit() {
     this.categoryService.getAllCategories().subscribe( (data) => {
+      console.log("Check data",data);
       this.categories = data;
     })
 
     this.brandService.getAllBrands().subscribe( data =>{
       this.brands = data;
    })
+
    if(this.product ){
+     console.log("Check this.product", this.product);
     this.frNewProduct.patchValue({
       id:this.product.id,
       productName:this.product.productName,
       priceProduct:this.product.priceProduct,
      quantityProduct:this.product.quantityProduct,
-     category: this.product.category,
-     brand:this.product.brand,
+     category: this.product.category ? this.product.category.id : null,
+     brand:this.product.brand.id ? this.product.brand.id : null,
     })
-  // console.log(this.frNewProduct.value);
-    //console.log(this.frNewProduct.controls['category'].value);
-    //console.log(this.categoryCurrent);
+
+    console.log("Check form",this.frNewProduct.getRawValue());
+
    }
 
 
   }
+
+
 
   Close(){
     this.dialogRef.close('close');
   }
 
   Save(){
-    this.dialogRef.close(this.frNewProduct.value);
+    //console.log('value form');
+    console.log(this.frNewProduct.value);
+     this.updateProduct.id = this.frNewProduct.value.id;
+     this.updateProduct.productName = this.frNewProduct.value.productName;
+     this.updateProduct.priceProduct = this.frNewProduct.value.priceProduct;
+     this.updateProduct.quantityProduct = this.frNewProduct.value.quantityProduct;
+     this.updateProduct.category = this.categories.find( item => item.id== this.frNewProduct.value.category);
+     this.updateProduct.brand = this.brands.find( item => item.id== this.frNewProduct.value.brand);
+    //console.log('value update product');
+    // console.log(this.updateProduct);
+    this.dialogRef.close(this.updateProduct);
+   // this.dialogRef.close(this.frNewProduct.value);
   }
+  //  if(this.product ){
+  //   this.frNewProduct.patchValue({
+  //     id:this.product.id,
+  //     productName:this.product.productName,
+  //     priceProduct:this.product.priceProduct,
+  //    quantityProduct:this.product.quantityProduct,
+  //    category: this.product.category.id,
+  //   // brand:this.product.brand.id || null,
+  //   })
+
+  //
+
 
 }
