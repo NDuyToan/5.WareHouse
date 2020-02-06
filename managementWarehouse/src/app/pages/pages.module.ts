@@ -7,7 +7,7 @@ import { AuthGuard } from './../core/auth/auth.guard';
 
 
 import { from } from 'rxjs';
-import { OrderDetailInfoComponent } from './order-detail-info/order-detail-info.component';
+
 
 const pagesRoutes : Routes = [
   {
@@ -26,15 +26,16 @@ const pagesRoutes : Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'customer',
-    loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule),
+    path: 'order-detail-info',
+    loadChildren: () => import('./order-detail-info/order-detail-info.module').then(m => m.OrderDetailInfoModule),
     canActivate: [AuthGuard]
   },
+
 ]
 
 
 @NgModule({
-  declarations: [OrderDetailInfoComponent],
+  declarations: [],
   imports: [
     CommonModule,
     RouterModule.forChild(pagesRoutes),

@@ -11,6 +11,7 @@ import { ProductComponent } from './product.component';
 import { ProductRoutingModule } from './product.route';
 import { ProductNewComponent } from './product-new/product-new.component';
 import { ProductDeleteComponent } from './product-delete/product-delete.component';
+import { NewOrderComponent } from './../order-detail-info/new-order/new-order.component';
 
 
 
@@ -18,7 +19,8 @@ import { ProductDeleteComponent } from './product-delete/product-delete.componen
   declarations: [
     ProductComponent,
     ProductNewComponent,
-    ProductDeleteComponent
+    ProductDeleteComponent,
+    NewOrderComponent,
     ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { ProductDeleteComponent } from './product-delete/product-delete.componen
   ],
   entryComponents: [
     ProductNewComponent,
-    ProductDeleteComponent
+    ProductDeleteComponent,
+    NewOrderComponent
   ]
 })
 export class ProductModule { }

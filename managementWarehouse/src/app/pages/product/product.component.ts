@@ -9,6 +9,7 @@ import { Product} from './../../shared/model/product.model';
 import { ProductService } from './product.service';
 import { ProductNewComponent } from './product-new/product-new.component';
 import { ProductDeleteComponent } from './product-delete/product-delete.component';
+import { NewOrderComponent } from './../order-detail-info/new-order/new-order.component';
 //import { ResponseProduct } from './../../shared/model/responseProduct.model';
 
 @Component({
@@ -18,12 +19,11 @@ import { ProductDeleteComponent } from './product-delete/product-delete.componen
 })
 export class ProductComponent implements OnInit {
   @ViewChild(MatPaginator,{static: false}) paginator: MatPaginator;
-  //private paginator: MatPaginator;
+
   public products: Product[] = [];
   public displayedColumns: string[] = ['index','id', 'productName', 'priceProduct', 'quantityProduct','brand','category', 'action'];
   public currentPageIndex:number =0;
   public currentPageSize: number = 5;
-  //public currentItemsPerPage: number;
   public currentLength:number;
 
   public defaultPageIndex:number = 0;
@@ -119,8 +119,13 @@ export class ProductComponent implements OnInit {
     })
   }
 
-  orderProduct(){
-    console.log('order');
+  orderProduct(product: Product){
+    let dialogRef = this.dialog.open(NewOrderComponent, {
+      width: '50%',
+      data: {
+        product: product,
+      }
+    })
   }
 
 

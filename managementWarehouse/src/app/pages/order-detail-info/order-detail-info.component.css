@@ -1,0 +1,39 @@
+table{
+  width: 100%;
+}
+.mat-column-id{
+  width: 5%;
+}
+.mat-column-productName{
+  width: 20%;
+}
+.mat-column-priceProduct{
+  width: 5%;
+}
+.mat-column-quantityProduct{
+  width: 5%;
+}
+.mat-column-amount{
+  width: 5%;
+}
+.mat-column-orderDate{
+  width: 5%;
+}
+.mat-column-orderInfo{
+  width: 5%;
+}
+.mat-column-action{
+  width: 40%;
+}
+/* .mat-column-action.button{
+  width: 20%;
+} */
+.mat-header-cell{
+  font-weight: bold;
+  font-size: 15px;
+}
+a{
+  color:blue;
+  cursor: pointer;
+
+}
