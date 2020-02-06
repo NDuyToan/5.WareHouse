@@ -31,10 +31,6 @@ export class ProductComponent implements OnInit {
   //private isNewPage:boolean=false;
 
   public pageSizeOptions: number[] = [5, 10, 20, 50];
-  //pageEvent: PageEvent;
-  //datasource: null;
-  // pageIndex:number = 0;
-  // pageSize:number = 5;
   length:number;
   constructor(
     private productService: ProductService,
@@ -50,8 +46,6 @@ export class ProductComponent implements OnInit {
 
   }
 
-
-
   handlePageChange(event:PageEvent){
     this.currentPageIndex = event.pageIndex;
     this.currentPageSize = event.pageSize;
@@ -61,25 +55,15 @@ export class ProductComponent implements OnInit {
 
   showIndex(i){
     return this.currentPageIndex*this.currentPageSize+i;
-
   }
 
   getProducts(event?:PageEvent){
-    // if( event ==null){
-    //   var index:number = this.currentPageIndex;
-    //   var size:number = this.currentPageSize;
-    // }
-    // else{
-    //   index = this.currentPageIndex;
-    //   size = this.currentPageSize;
-    // }
    var index = this.currentPageIndex;
    var size = this.currentPageSize;
     this.productService.getProductByPage(index, size).subscribe(
       (response)=>{
         this.products = response.content;
         this.length = response.totalElements;
-
       });
   }
 
@@ -128,12 +112,15 @@ export class ProductComponent implements OnInit {
       data: {product: product}
     });
     dialogRef.afterClosed().subscribe( (data) =>{
-      //console.log(data);
      if(data !='close'){
       this.productService.editProduct(data).subscribe( ()=>{this.getProducts(null)})
      }
 
     })
+  }
+
+  orderProduct(){
+    console.log('order');
   }
 
 

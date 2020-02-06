@@ -7,6 +7,7 @@ import { AuthGuard } from './../core/auth/auth.guard';
 
 
 import { from } from 'rxjs';
+import { OrderDetailInfoComponent } from './order-detail-info/order-detail-info.component';
 
 const pagesRoutes : Routes = [
   {
@@ -33,7 +34,7 @@ const pagesRoutes : Routes = [
 
 
 @NgModule({
-  declarations: [],
+  declarations: [OrderDetailInfoComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(pagesRoutes),
