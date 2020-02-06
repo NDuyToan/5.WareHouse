@@ -73,6 +73,7 @@ export class ProductComponent implements OnInit {
       width: '80%',
     })
     dialogRef.afterClosed().subscribe( (result) => {
+      console.log(result);
       if(result != 'close'){
         this.productService.creatNewProduct(result).subscribe( ()=>{
           this.paginator.firstPage();
@@ -113,7 +114,8 @@ export class ProductComponent implements OnInit {
       data: {product: product}
     });
     dialogRef.afterClosed().subscribe( (data) =>{
-     if(data !='close'){
+      //console.log(data);
+     if(data !='close' && data != undefined){
       this.productService.editProduct(data).subscribe( ()=>{this.getProducts(null)})
      }
 
