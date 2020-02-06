@@ -9,7 +9,8 @@ import { Product} from './../../shared/model/product.model';
 import { ProductService } from './product.service';
 import { ProductNewComponent } from './product-new/product-new.component';
 import { ProductDeleteComponent } from './product-delete/product-delete.component';
-import { NewOrderComponent } from './../order-detail-info/new-order/new-order.component';
+import { OrderDetailInfoUpdateComponent } from './order-detail-info-update/order-detail-info-update.component';
+import { CallAPI } from './../../shared/serviceAPI/callAPI.service';
 //import { ResponseProduct } from './../../shared/model/responseProduct.model';
 
 @Component({
@@ -28,7 +29,6 @@ export class ProductComponent implements OnInit {
 
   public defaultPageIndex:number = 0;
   public defaultPageSize = 5;
-  //private isNewPage:boolean=false;
 
   public pageSizeOptions: number[] = [5, 10, 20, 50];
   length:number;
@@ -36,6 +36,7 @@ export class ProductComponent implements OnInit {
     private productService: ProductService,
     public dialog: MatDialog,
     private routerService: Router,
+    private callAPI: CallAPI,
 
   ) { }
 
@@ -120,10 +121,16 @@ export class ProductComponent implements OnInit {
   }
 
   orderProduct(product: Product){
-    let dialogRef = this.dialog.open(NewOrderComponent, {
+    let dialogRef = this.dialog.open(OrderDetailInfoUpdateComponent, {
       width: '50%',
       data: {
         product: product,
+      }
+    });
+    dialogRef.afterClosed().subscribe((data)=> {
+
+      if(data =='save'){
+        this.getProducts();
       }
     })
   }

@@ -7,6 +7,6 @@ export class OderDetailInfo {
   amount?: number;
   orderDate?: Moment;
   orderInfoId?: number;
-  productId?: number;
+  product?: number;
   reportId?: number;
 }

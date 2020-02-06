@@ -3,6 +3,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 
 import { OrderDetailInfoService } from './/order-detail-info.service';
+import { CallAPI } from './../../shared/serviceAPI/callAPI.service';
 import { OderDetailInfo } from './../../shared/model/order-detail-info.model';
 
 @Component({
@@ -16,6 +17,7 @@ export class OrderDetailInfoComponent implements OnInit {
   public displayedColumns: string[] = ['id', 'productName', 'priceProduct', 'quantityProduct','amount','orderDate','orderInfo', 'action'];
   constructor(
     private orderDetailInfoService: OrderDetailInfoService,
+    private callAPI: CallAPI,
 
   ) { }
 
@@ -23,9 +25,7 @@ export class OrderDetailInfoComponent implements OnInit {
     this.getAllOrderDetailInfo();
   }
   getAllOrderDetailInfo(){
-    this.orderDetailInfoService.getAllOrderDetailInfos().subscribe( (result) =>{
-      this.orderDetailInfos = result;
-    })
+    this.callAPI.getAllOrderDetailInfos().subscribe( result =>  this.orderDetailInfos = result);
   }
   openDetailInfoNew(){
 
