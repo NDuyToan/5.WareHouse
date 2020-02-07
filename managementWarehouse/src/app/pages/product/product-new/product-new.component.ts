@@ -64,14 +64,16 @@ export class ProductNewComponent implements OnInit {
 
    if(this.product ){
     this.frNewProduct.patchValue({
+
       id:this.product.id,
       productName:this.product.productName,
       priceProduct:this.product.priceProduct,
       quantityProduct:this.product.quantityProduct,
       category: this.product.category ? this.product.category.id : null,
-      brand:this.product.brand.id ? this.product.brand.id : null,
+      brand:this.product.brand ? this.product.brand.id : null,
     })
    }
+   console.log(this.frNewProduct.getRawValue());
   }
 
   Close(){
