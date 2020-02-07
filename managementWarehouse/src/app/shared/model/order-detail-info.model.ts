@@ -1,4 +1,5 @@
 import { Moment } from 'moment';
+import { Product } from './product.model';
 export class OderDetailInfo {
   id?: number;
   productName?: string;

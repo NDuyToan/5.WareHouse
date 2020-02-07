@@ -73,7 +73,7 @@ export class ProductNewComponent implements OnInit {
       brand:this.product.brand ? this.product.brand.id : null,
     })
    }
-   console.log(this.frNewProduct.getRawValue());
+
   }
 
   Close(){

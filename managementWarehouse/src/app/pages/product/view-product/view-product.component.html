@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Product {{product.id}}</h1>
+<div mat-dialog-content>
+  <h4>Product Name</h4>
+  <p>{{product.productName}}</p>
+
+  <h4>Price Product</h4>
+  <p>{{product.priceProduct}}</p>
+
+  <h4>Quantity Product</h4>
+  <p>{{product.quantityProduct}}</p>
+
+  <h4>Category</h4>
+  <p>
+    {{product.category? product.category.cateName: 'Not Available'}}
+  </p>
+
+  <h4>Brand</h4>
+  <p>
+    {{product.brand? product.brand.brandName: 'Not Available'}}
+  </p>
+
+</div>
+
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="Close()">
+    <i class="material-icons">
+      cancel
+    </i>
+    Close</button>
+
+</div>

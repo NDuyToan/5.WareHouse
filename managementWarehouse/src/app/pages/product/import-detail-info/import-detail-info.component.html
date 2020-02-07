@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Create a new Import Detail Info</h1>
+
+<div mat-dialog-content>
+  <form action="" [formGroup]="frImportDetailInfo">
+    <div class="form-group">
+      <label for="quantityImport">Quantity Import</label>
+      <input type="text" name="quantityImport" class="form-control" formControlName="quantityImport">
+    </div>
+    <div class="form-group">
+      <label for="priceImport">Price Import</label>
+      <input type="text" name="priceImport" class="form-control" formControlName="priceImport">
+    </div>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="Cancel()">
+    <i class="material-icons">
+      cancel
+    </i>
+    Cancel</button>
+  <button mat-raised-button color="primary" (click)="Save()">
+    <i class="material-icons">
+      save
+    </i>
+    Save</button>
+</div>

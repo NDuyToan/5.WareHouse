@@ -10,7 +10,10 @@ import { ProductService } from './product.service';
 import { ProductNewComponent } from './product-new/product-new.component';
 import { ProductDeleteComponent } from './product-delete/product-delete.component';
 import { OrderDetailInfoUpdateComponent } from './order-detail-info-update/order-detail-info-update.component';
+import { ImportDetailInfoComponent } from './import-detail-info/import-detail-info.component';
+import { ViewProductComponent } from './view-product/view-product.component';
 import { CallAPI } from './../../shared/serviceAPI/callAPI.service';
+import { from } from 'rxjs';
 //import { ResponseProduct } from './../../shared/model/responseProduct.model';
 
 @Component({
@@ -134,6 +137,23 @@ export class ProductComponent implements OnInit {
       if(data =='save'){
         this.getProducts();
       }
+    })
+  }
+  importProduct( product: Product){
+    let dialogRef = this.dialog.open( ImportDetailInfoComponent, {
+      width: '50%',
+      data: { product: product}
+    });
+    dialogRef.afterClosed().subscribe( (data)=>{
+      if(data=='save'){
+        this.getProducts();
+      }
+    })
+  };
+  viewProduct(product: Product){
+    let dialogRef = this.dialog.open(ViewProductComponent,{
+      width: '50%',
+      data: {product: product}
     })
   }
 

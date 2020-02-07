@@ -5,3 +5,4 @@ export const URL_PRODUCTS: string = 'http://localhost:8080/api/products';
 export const URL_CATEGORY: string = 'http://localhost:8080/api/categories';
 export const URL_CUSTOMER: string = 'http://localhost:8080/api/customers';
 export const URL_ORDER_DETAIL_INFO: string = 'http://localhost:8080/api/order-detail-infos';
+export const URL_IMPORT_DETAIL_INFO: string = 'http://localhost:8080/api/import-detail-infos';

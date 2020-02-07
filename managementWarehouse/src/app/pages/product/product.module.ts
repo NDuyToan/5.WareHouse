@@ -12,6 +12,8 @@ import { ProductRoutingModule } from './product.route';
 import { ProductNewComponent } from './product-new/product-new.component';
 import { ProductDeleteComponent } from './product-delete/product-delete.component';
 import { OrderDetailInfoUpdateComponent } from './order-detail-info-update/order-detail-info-update.component';
+import { ImportDetailInfoComponent } from './import-detail-info/import-detail-info.component';
+import { ViewProductComponent } from './view-product/view-product.component';
 
 
 
@@ -21,7 +23,9 @@ import { OrderDetailInfoUpdateComponent } from './order-detail-info-update/order
     ProductComponent,
     ProductNewComponent,
     ProductDeleteComponent,
-    OrderDetailInfoUpdateComponent
+    OrderDetailInfoUpdateComponent,
+    ImportDetailInfoComponent,
+    ViewProductComponent
 
     ],
   imports: [
@@ -37,7 +41,9 @@ import { OrderDetailInfoUpdateComponent } from './order-detail-info-update/order
   entryComponents: [
     ProductNewComponent,
     ProductDeleteComponent,
-    OrderDetailInfoUpdateComponent
+    OrderDetailInfoUpdateComponent,
+    ImportDetailInfoComponent,
+    ViewProductComponent
 
   ]
 })

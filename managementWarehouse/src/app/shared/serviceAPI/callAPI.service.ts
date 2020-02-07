@@ -4,7 +4,9 @@ import { Observable } from 'rxjs';
 
 
 import { URL_ORDER_DETAIL_INFO } from './../../app.const';
+import { URL_IMPORT_DETAIL_INFO } from './../../app.const';
 import { OderDetailInfo } from './../../shared/model/order-detail-info.model';
+import { Import } from './../model/import.model';
 
 
 @Injectable({
@@ -21,6 +23,9 @@ export class CallAPI {
   }
   createNewOrderDetailInfo(orderDetailInfo: OderDetailInfo): Observable<OderDetailInfo>{
     return this.http.post<OderDetailInfo>(URL_ORDER_DETAIL_INFO, orderDetailInfo);
+  }
+  creatNewImportDetailInfo( importDetailInfo:Import ): Observable<Import>{
+    return this.http.post<Import>(URL_IMPORT_DETAIL_INFO,importDetailInfo);
   }
 
 
